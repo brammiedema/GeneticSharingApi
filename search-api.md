@@ -8,14 +8,6 @@ For example: `https://yourmatchmaker.org/mmapi/v1/match`
 `HTTP POST` from remote server to: `<base_origin_url>/mmapi/v1/matchResults`
 For example: `https://mymatchmaker.org/mmapi/v1/matchResults`
 
-**Update previous request:**
-`HTTP PUT` to remote server: `<base_remote_url>/mmapi/v1/match/<queryID>`
-For example: `https://yourmatchmaker.org/mmapi/v1/match/a32fa90vd`
-
-**Delete previous request:**
-`HTTP DELETE` to remote server: `<base_remote_url>/mmapi/v1/match/<queryID>`
-For example: `https://yourmatchmaker.org/mmapi/v1/match/a32fa90vd`
-
 ## Search Request
 
 `HTTP POST` request to `<base_remote_url>/mmapi/v1/match`, with an `application/json` body with the following format:
