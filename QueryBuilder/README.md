@@ -24,7 +24,7 @@ TODO
 
 ## Contributors
 
-Owen Lancaster (owenlancaster@gmail.com)
+Owen Lancaster (owenlancaster@gmail.com)<br />
 Bram Miedema (bram_miedema@hotmail.com)
 
 ## License
