@@ -73,7 +73,7 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 
 #### Allele
 * ***Optional***
-* Will specify a query that returns all variants within a region based on the reference postion specific for the alleles and query as present in the allele list
+* Will specify a query that returns all variants within a region based on the reference postion specific for the alleles and query as present in the allele object list
 * `id`: identifier for the allele query specified
 * `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
 * `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
@@ -84,7 +84,7 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 
 #### Coordinate
 * ***Optional***
-* Will specify a  query that returns all variants within a region based on the reference postion specified in the coordinate list
+* Will specify a  query that returns all variants within a region based on the reference postion specified in the coordinate object list
 * `id`: identifier for the allele query specified t
 * `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
 * `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
