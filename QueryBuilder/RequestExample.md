@@ -1,3 +1,9 @@
+# OVERVIEW
+
+**Submit patient variant request:**
+`HTTP POST` to remote server: `<base_remote_url>api/v1/getAggregate`
+For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
+
 ```json
 {
     "queryMetadata": {
@@ -15,26 +21,86 @@
     "query": {
         "allele": [
             {
+                "id" : "a",
                 "operator": "IS",
-                "source": "HGNC",
-                "reference": "RHBDF1",
-                "start": "17",
-                "end": "19",   
-                "allele_sequence": [ "T" ]
-             
+                "source": "GRCBUILD",
+                "reference": "10.GRCh37",
+                "start": "75871734",
+                "end": "75871735",
+                "allele_sequence": [ "G" ]
             },
             {
+                "id" : "b",
                 "operator": "IS",
-                "source": "HGNC",
-                "reference": "RHBDF1",
-                "start": "17",
-                "end": "19",
-                "allele_sequence": [ "C" ,"T", "A","G"]
-
-
+                "source": "GRCBUILD",
+                "reference": "10.GRCh37",
+                "start": "75871734",
+                "end": "75871735",
+                "allele_sequence": [ "C" ]
             }
-           
-        ]
+        ],
+    "queryStatement": "a|b"
     }
+   
 }
 ```
+#### queryMetadata 
+* ***Mandatory***
+* Describes how the query should response and information of the submitter.
+
+#### queryID
+* ***Mandatory***
+* The internal identifier to link the response to a query so in case of long calculation the submitter can be notified when it is done
+
+#### label
+* ***Optional***
+* A name/identifier assigned by the user which can be used to reference the query in a recognizable manner (in an email for example); it should not contain any *personally identifiable information*
+* Transparent string, limited to 255 characters in utf-8
+
+#### queryType
+* ***Mandatory***
+* Accepted values:
+  * `once`: only search once in the current database
+  * `periodic`: repeat the search monthly until canceled, reporting new and updated matches
+* The default value is `once`
+* If a system doesn’t support the requested type, the `once` behavior is used
+
+#### queryResultFormat
+* ***Mandatory***
+* Specifies the respone format
+
+#### Submitter
+* ***Mandatory*** if an email response is expected, *Optional* otherwise
+* Consists of contact information of the person that submitted the search:
+  * `id`: the identifier that is requested for accessing the data for user logging purposes (***mandatory***) 
+  * `email`: the email address where matches can be sent (***mandatory***); the values must conform to the [RFC 2822 address specification](http://tools.ietf.org/html/rfc2822#section-3.4) mailbox format (no group)
+  * `name`: the first and last name (*optional*)
+  * `institution`: human-readable institution name (*optional*)
+* **The contact information is for transmitting match results only, and may not be collected and/or used for any other purposes**
+
+#### Query
+* ***Mandatory***
+* Accepted values: `"allele"`, `"coordinate"`
+* Allele and coodrinate should satisfy the object specification respectively
+* 'queryStatement': `<STRING>`: Specifies the relation between the different elements in the allele/coordinate list
+
+#### Allele
+* ***Optional***
+* Will specify a query that returns all variants within a region based on the reference postion specific for the alleles and query as present in the allele list
+* `id`: identifier for the allele query specified
+* `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
+* `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
+* `reference`: if `"GRCBUILD"` is specified in source then the format should look like `<chromosome>.<build_id>`for example: `"10.GRCh37"`, if `"HGNC"` is specified in source then the format can be any `<HGNC GENESYMBOL>` for example : `"BRCA1"`   
+* `start`: `<NUMBER>`; the start position of the variant within the reference, including the position it self. (0-based)
+* `end`: `<NUMBER>`; the end position of the variant within the reference, excluding the position it self. (0-based)
+* `allele_sequence`: `<LIST>`; each element in a list specifies an allele e.g `["C","GTCGTGAA"]`
+
+#### Coordinate
+* ***Optional***
+* Will specify a  query that returns all variants within a region based on the reference postion specified in the coordinate list
+* `id`: identifier for the allele query specified t
+* `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
+* `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
+* `reference`: if `"GRCBUILD"` is specified in source then the format should look like `<chromosome>.<build_id>`for example: `"10.GRCh37"`, if `"HGNC"` is specified in source then the format can be any `<HGNC GENESYMBOL>` for example : `"BRCA1"`   
+* `start`: `<NUMBER>`; the start position of the variant within the reference, including the position it self. (0-based)
+* `end`: `<NUMBER>`; the end position of the variant within the reference, excluding the position it self. (0-based)
