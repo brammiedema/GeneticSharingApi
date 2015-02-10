@@ -46,11 +46,11 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 ```
 #### queryMetadata 
 * ***Mandatory***
-* Describes how the query should response and information of the submitter.
+* Describes how the query should response and holds information of the submitter.
 
 #### queryID
 * ***Mandatory***
-* The internal identifier to link the response to a query so in case of long calculation the submitter can be notified when it is done
+* The internal identifier to link the response to a query, in case of long calculation the submitter can be notified when it is done
 
 #### label
 * ***Optional***
