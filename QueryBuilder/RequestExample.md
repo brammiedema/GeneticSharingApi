@@ -11,8 +11,9 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * `queryID`: `<STIRNG>`; unique within each institute; internal identifier to link the response to a query, in case of long calculation the submitter can be notified when it is done
 * `label`: `<STRING>`; name/identifier assigned by the user which can be used to reference the query in a recognizable manner (in an email for example); it should not contain any *personally identifiable information*
 * Transparent string, limited to 255 characters in utf-8
-* `queryType`: `<STRING>`; * Accepted values:
-  * `once`: ``only search once in the current database
+* `queryType`: `<STRING>`; 
+* Accepted values:
+  * `once`: only search once in the current database
   * `periodic`: repeat the search monthly until canceled, reporting new and updated matches
   * If not supported the behaviour of `once` will be used 
 * `queryResultFormat`: `<STRING>`; Specifies the respone format
