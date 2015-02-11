@@ -1,10 +1,8 @@
 # RESPONSE
-* Shows the JSON representation of the result of a GeneticSharingApi request response
-
-
+Shows the JSON representation of the response from a GeneticSharingApi request 
 
 #### Metadata 
-* Describes the meta data of the response like total hits and paging information
+Describes the meta data of the response like total hits and paging information
 * `href`: `<STIRNG>`; an URL specifying where the contents can be found of the result
 * `start`: `<NUMBER>`; index of first hit returned
 * `num`: `<NUMBER>`; current number of hit 
@@ -13,16 +11,14 @@
 * `nextHref`: `<STRING>`; an URL specifying where the contents can be found of the next result
 
 #### Results
-* Is a list containing elements of result objects described below
+Is a list containing elements of result objects described below
 * `resultType`: `<STRING>`; specifies the type of the query performed values accepted are: `"coordinate"`|`"allele"`
 * `referenceAllele`: `<LIST>`; this List represents the allele labels on the X axis
 * `alternativeAllele`: `<LIST>`; this List represents the allele labels section on the Y axis
 * `chromosome`: `<STRING>`; identifier specifying the chromosome number according to the reference
-* `position`: `<NUMBER>`; nucelotide base position on the chromosome 0 based
+* `position`: `<NUMBER>`; nucelotide base position on the chromosome. (0-based)
 * `reference`: `<STRING>`; name of the reference genome that was used to map the chromosome and position
 * `results`: `<LIST>`; list containing teh values to fill up a matrix design which is labeled by the alternativeAllele and the alternativeAllele fields for example: 
-
-
 
 alleles  | C  |  G  | null 
  ------|----|-----|------
@@ -31,7 +27,7 @@ alleles  | C  |  G  | null
   null |  0 |  0  |   0  
 
 
-
+#### Example
 ```json
     {
        "metadata":
