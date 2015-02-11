@@ -6,8 +6,8 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 
 
 #### queryMetadata 
-* ***Mandatory***
-* Describes how the query should response and holds information of the submitter.
+ ***Mandatory***
+ Describes how the query should response and holds information of the submitter.
 * `queryID`: `<STIRNG>`; unique within each institute; internal identifier to link the response to a query, in case of long calculation the submitter can be notified when it is done
 * `label`: `<STRING>`; name/identifier assigned by the user which can be used to reference the query in a recognizable manner (in an email for example); it should not contain any *personally identifiable information*
 * Transparent string, limited to 255 characters in utf-8
@@ -19,8 +19,8 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * `queryResultFormat`: `<STRING>`; Specifies the respone format
 
 #### Submitter
-* ***Mandatory*** if an email response is expected, *Optional* otherwise
-* Consists of contact information of the person that submitted the search:
+ ***Mandatory*** if an email response is expected, *Optional* otherwise
+ Consists of contact information of the person that submitted the search:
   * `id`: `<STRING>`; the identifier that is requested for accessing the data for user logging purposes (***mandatory***) 
   * `email`: `<STRING>`; the email address where matches can be sent (***mandatory***); the values must conform to the [RFC 2822 address specification](http://tools.ietf.org/html/rfc2822#section-3.4) mailbox format (no group)
   * `name`: `<STRING>`;  the first and last name (*optional*)
@@ -28,14 +28,13 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * **The contact information is for transmitting match results only, and may not be collected and/or used for any other purposes**
 
 #### Query
-* ***Mandatory***
-* Accepted values: `"allele"`|`"coordinate"`
-* Allele and coodrinate should satisfy the object specification respectively
-* `queryStatement`: `<STRING>`: Specifies the relation between the different elements in the allele/coordinate list
+ ***Mandatory***
+* Accepted values: `"allele"`|`"coordinate"`; allele and coodrinate should satisfy the object specification respectively
+* `queryStatement`: `<STRING>`: specifies the relation between the different elements in the allele/coordinate list
 
 #### Allele
-* ***Optional***
-* Will specify a query that returns all variants within a region based on the reference postion specific for the alleles and query as present in the allele object list
+ ***Optional***
+ Will specify a query that returns all variants within a region based on the reference postion specific for the alleles and query as present in the allele object list
 * `id`: identifier for the allele query specified
 * `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
 * `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
@@ -45,8 +44,8 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * `allele_sequence`: `<LIST>`; each element in a list specifies an allele e.g `["C","GTCGTGAA"]`
 
 #### Coordinate
-* ***Optional***
-* Will specify a  query that returns all variants within a region based on the reference postion specified in the coordinate object list
+ ***Optional***
+ Will specify a query that returns all variants within a region based on the reference postion specified in the coordinate object list
 * `id`: identifier for the allele query specified t
 * `operator`: `"IS"` | `"NOT"`; this is to specify to include this allele query or to exclude it from the results
 * `source`: `"GRCBUILD"`|`"HGNC"`; specifies the source of the reference 
