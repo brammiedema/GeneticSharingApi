@@ -1,4 +1,4 @@
-# OVERVIEW
+# Request
 
 **Submit patient variant request:**
 `HTTP POST` to remote server: `<base_remote_url>api/v1/getAggregate`
