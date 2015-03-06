@@ -30,7 +30,7 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 #### Query
  ***Mandatory***
 * Accepted values: `"allele"`|`"coordinate"`; allele and coodrinate should satisfy the object specification respectively
-* `queryStatement`: `<STRING>`: specifies the relation between the different elements in the allele/coordinate list
+
 
 #### Allele
  ***Optional***
@@ -52,6 +52,10 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * `reference`: if `"GRCBUILD"` is specified in source then the format should look like `<chromosome>.<build_id>`for example: `"10.GRCh37"`, if `"HGNC"` is specified in source then the format can be any `<HGNC GENESYMBOL>` for example : `"BRCA1"`   
 * `start`: `<NUMBER>`; the start position of the variant within the reference, including the position it self. (0-based)
 * `end`: `<NUMBER>`; the end position of the variant within the reference, excluding the position it self. (0-based)
+
+#### QueryStatement
+*** required***
+* `queryStatement`: `<STRING>`: specifies the relation between the different elements in the allele/coordinate list
 
 # Example query
 ```json
@@ -89,8 +93,9 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
                 "allele_sequence": [ "C" ]
             }
         ],
+    
+    },
     "queryStatement": "a|b"
-    }
    
 }
 ```
