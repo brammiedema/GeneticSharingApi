@@ -54,7 +54,7 @@ For example: `http://molgenis.gcc.rug.nl/api/v1/getAggregate`
 * `end`: `<NUMBER>`; the end position of the variant within the reference, excluding the position it self. (0-based)
 
 #### QueryStatement
-*** required***
+ ***Mandatory***
 * `queryStatement`: `<STRING>`: specifies the relation between the different elements in the allele/coordinate list
 
 # Example query
