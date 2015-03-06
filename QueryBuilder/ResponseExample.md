@@ -13,8 +13,8 @@ Describes the meta data of the response like total hits and paging information
 #### Results
 Is a list containing elements of result objects described below
 * `resultType`: `<STRING>`; specifies the type of the query performed values accepted are: `"coordinate"`|`"allele"`
-* `referenceAllele`: `<LIST>`; this List represents the allele labels on the X axis
-* `alternativeAllele`: `<LIST>`; this List represents the allele labels section on the Y axis
+* `xAxisAlleles`: `<LIST>`; this List represents the allele labels on the X axis
+* `yAxisAlleles`: `<LIST>`; this List represents the allele labels section on the Y axis
 * `chromosome`: `<STRING>`; identifier specifying the chromosome number according to the reference
 * `position`: `<NUMBER>`; nucelotide base position on the chromosome. (0-based)
 * `reference`: `<STRING>`; name of the reference genome that was used to map the chromosome and position
@@ -30,54 +30,50 @@ alleles  | C  |  G  | null
 #### Example
 ```json
     {
-       "metadata":
-       {
-           "href": "not supported",
-           "start": 0,
-           "num": 0,
-           "total": 1,
-           "prevHref": "not supported yet",
-           "nextHref": "not supported"
-       },
-       "results":
-       [
-           {
-               "resultType": "coordinate",
-               "referenceAllele":
-               [
-                   "C",
-                   "G",
-                   null
-               ],
-               "alternativeAllele":
-               [
-                   "C",
-                   "G",
-                   null
-               ],
-               "chromosome": "10",
-               "position": 75871735,
-               "reference": "GRCh37",
-               "result":
-               [
-                   [
-                       27,
-                       124,
-                       0
-                   ],
-                   [
-                       0,
-                       190,
-                       0
-                   ],
-                   [
-                       0,
-                       0,
-                       0
-                   ]
-               ]
-           }
-       ]
+  "metadata": {
+    "queryId": "1546",
+    "href": "not supported",
+    "start": 0,
+    "num": 0,
+    "total": 1,
+    "prevHref": "not supported yet",
+    "nextHref": "not supported"
+  },
+  "results": [
+    {
+      "resultType": "coordinate",
+      "xAxisAlleles": [
+        "C",
+        "G",
+        null
+      ],
+      "yAxisAlleles": [
+        "C",
+        "G",
+        null
+      ],
+      "chromosome": "10",
+      "position": 75871735,
+      "reference": "GRCh37",
+      "result": [
+        [
+          27,
+          124,
+          0
+        ],
+        [
+          0,
+          190,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
     }
+  ]
+}
 
 ```
